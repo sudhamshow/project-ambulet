@@ -1,0 +1,709 @@
+second thread started 
+socket created 3
+bind successful to INADDR_ANY
+packet recvd packet no: 0 interface:3
+ packet no 0 from interface 3 put in index no : 0 
+packet recvd packet no: 0 interface:1
+ packet no 0 from interface 1 put in index no : 0 
+packet recvd packet no: 0 interface:2
+ packet no 0 from interface 2 put in index no : 0 
+packet recvd packet no: 2 interface:3
+next_expt :1
+ packet no 2 from interface 3 put in index no : 2 
+packet recvd packet no: 2 interface:1
+discarded packet 
+packet recvd packet no: 2 interface:2
+discarded packet 
+packet recvd packet no: 4 interface:3
+next_expt :3
+ packet no 4 from interface 3 put in index no : 4 
+packet recvd packet no: 4 interface:1
+discarded packet 
+packet recvd packet no: 3 interface:2
+ packet no 3 from interface 2 put in index no : 3 
+packet recvd packet no: 5 interface:3
+ packet no 5 from interface 3 put in index no : 5 
+packet consumed 0 from interface 2 
+waiting for 1 wait_time = 2096
+packet recvd packet no: 6 interface:1
+next_expt :5
+ packet no 6 from interface 1 put in index no : 6 
+packet recvd packet no: 4 interface:2
+discarded packet 
+packet recvd packet no: 6 interface:3
+discarded packet 
+packet recvd packet no: 7 interface:1
+ packet no 7 from interface 1 put in index no : 7 
+packet recvd packet no: 6 interface:2
+discarded packet 
+packet recvd packet no: 7 interface:3
+discarded packet 
+packet recvd packet no: 8 interface:1
+ packet no 8 from interface 1 put in index no : 8 
+packet recvd packet no: 7 interface:2
+discarded packet 
+packet recvd packet no: 8 interface:3
+discarded packet 
+packet recvd packet no: 9 interface:1
+ packet no 9 from interface 1 put in index no : 9 
+packet recvd packet no: 8 interface:2
+discarded packet 
+packet recvd packet no: 10 interface:3
+next_expt :9
+ packet no 10 from interface 3 put in index no : 10 
+packet recvd packet no: 11 interface:1
+next_expt :10
+ packet no 11 from interface 1 put in index no : 11 
+packet recvd packet no: 11 interface:2
+discarded packet 
+packet recvd packet no: 11 interface:3
+discarded packet 
+packet recvd packet no: 13 interface:1
+next_expt :12
+ packet no 13 from interface 1 put in index no : 13 
+packet recvd packet no: 12 interface:2
+ packet no 12 from interface 2 put in index no : 12 
+wait_ time expired packet no 1 dropped
+waiting packet no = 2
+packet consumed 2 from interface 3 
+packet consumed 3 from interface 2 
+packet consumed 4 from interface 3 
+packet consumed 5 from interface 3 
+packet consumed 6 from interface 1 
+packet consumed 7 from interface 1 
+packet consumed 8 from interface 1 
+packet consumed 9 from interface 1 
+packet consumed 10 from interface 3 
+packet consumed 11 from interface 1 
+packet consumed 12 from interface 2 
+packet consumed 13 from interface 1 
+packet recvd packet no: 13 interface:3
+discarded packet 
+packet recvd packet no: 14 interface:1
+ packet no 14 from interface 1 put in index no : 14 
+packet recvd packet no: 13 interface:2
+discarded packet 
+packet consumed 14 from interface 1 
+packet recvd packet no: 14 interface:3
+discarded packet 
+packet recvd packet no: 15 interface:1
+ packet no 15 from interface 1 put in index no : 15 
+packet consumed 15 from interface 1 
+packet recvd packet no: 14 interface:2
+discarded packet 
+packet recvd packet no: 15 interface:3
+discarded packet 
+packet recvd packet no: 16 interface:1
+ packet no 16 from interface 1 put in index no : 16 
+packet consumed 16 from interface 1 
+packet recvd packet no: 15 interface:2
+discarded packet 
+packet recvd packet no: 16 interface:3
+discarded packet 
+packet recvd packet no: 17 interface:1
+ packet no 17 from interface 1 put in index no : 17 
+packet recvd packet no: 16 interface:2
+discarded packet 
+packet consumed 17 from interface 1 
+packet recvd packet no: 17 interface:3
+discarded packet 
+packet recvd packet no: 18 interface:1
+ packet no 18 from interface 1 put in index no : 18 
+packet recvd packet no: 17 interface:2
+discarded packet 
+packet consumed 18 from interface 1 
+packet recvd packet no: 19 interface:3
+next_expt :18
+ packet no 19 from interface 3 put in index no : 19 
+packet consumed 19 from interface 3 
+packet recvd packet no: 19 interface:1
+discarded packet 
+packet recvd packet no: 19 interface:2
+discarded packet 
+packet recvd packet no: 20 interface:3
+ packet no 20 from interface 3 put in index no : 0 
+packet consumed 20 from interface 3 
+packet recvd packet no: 20 interface:1
+discarded packet 
+packet recvd packet no: 20 interface:2
+discarded packet 
+packet recvd packet no: 22 interface:3
+next_expt :21
+ packet no 22 from interface 3 put in index no : 2 
+waiting for 21 wait_time = 2391
+packet recvd packet no: 22 interface:1
+discarded packet 
+packet recvd packet no: 22 interface:2
+discarded packet 
+wait_ time expired packet no 21 dropped
+waiting packet no = 22
+packet consumed 22 from interface 3 
+packet recvd packet no: 24 interface:3
+next_expt :23
+ packet no 24 from interface 3 put in index no : 4 
+waiting for 23 wait_time = 2426
+packet recvd packet no: 24 interface:1
+discarded packet 
+packet recvd packet no: 23 interface:2
+ packet no 23 from interface 2 put in index no : 3 
+packet consumed 23 from interface 2 
+packet consumed 24 from interface 3 
+packet recvd packet no: 25 interface:3
+ packet no 25 from interface 3 put in index no : 5 
+packet consumed 25 from interface 3 
+packet recvd packet no: 26 interface:1
+next_expt :25
+ packet no 26 from interface 1 put in index no : 6 
+packet recvd packet no: 24 interface:2
+discarded packet 
+packet consumed 26 from interface 1 
+packet recvd packet no: 26 interface:3
+discarded packet 
+packet recvd packet no: 27 interface:1
+ packet no 27 from interface 1 put in index no : 7 
+packet recvd packet no: 26 interface:2
+discarded packet 
+packet consumed 27 from interface 1 
+packet recvd packet no: 27 interface:3
+discarded packet 
+packet recvd packet no: 28 interface:1
+ packet no 28 from interface 1 put in index no : 8 
+packet recvd packet no: 27 interface:2
+discarded packet 
+packet consumed 28 from interface 1 
+packet recvd packet no: 28 interface:3
+discarded packet 
+packet recvd packet no: 29 interface:1
+ packet no 29 from interface 1 put in index no : 9 
+packet recvd packet no: 28 interface:2
+discarded packet 
+packet consumed 29 from interface 1 
+packet recvd packet no: 30 interface:3
+next_expt :29
+ packet no 30 from interface 3 put in index no : 10 
+packet consumed 30 from interface 3 
+packet recvd packet no: 31 interface:1
+next_expt :30
+ packet no 31 from interface 1 put in index no : 11 
+packet recvd packet no: 31 interface:2
+discarded packet 
+packet consumed 31 from interface 1 
+packet recvd packet no: 31 interface:3
+discarded packet 
+packet recvd packet no: 32 interface:2
+ packet no 32 from interface 2 put in index no : 12 
+packet recvd packet no: 33 interface:1
+next_expt :32
+ packet no 33 from interface 1 put in index no : 13 
+packet consumed 32 from interface 2 
+packet consumed 33 from interface 1 
+packet recvd packet no: 33 interface:3
+discarded packet 
+packet recvd packet no: 34 interface:1
+ packet no 34 from interface 1 put in index no : 14 
+packet recvd packet no: 33 interface:2
+discarded packet 
+packet consumed 34 from interface 1 
+packet recvd packet no: 34 interface:3
+discarded packet 
+packet recvd packet no: 35 interface:1
+ packet no 35 from interface 1 put in index no : 15 
+packet recvd packet no: 34 interface:2
+discarded packet 
+packet consumed 35 from interface 1 
+packet recvd packet no: 35 interface:3
+discarded packet 
+packet recvd packet no: 36 interface:1
+ packet no 36 from interface 1 put in index no : 16 
+packet consumed 36 from interface 1 
+packet recvd packet no: 35 interface:2
+discarded packet 
+packet recvd packet no: 36 interface:3
+discarded packet 
+packet recvd packet no: 37 interface:1
+ packet no 37 from interface 1 put in index no : 17 
+packet consumed 37 from interface 1 
+packet recvd packet no: 36 interface:2
+discarded packet 
+packet recvd packet no: 37 interface:3
+discarded packet 
+packet recvd packet no: 38 interface:1
+ packet no 38 from interface 1 put in index no : 18 
+packet recvd packet no: 37 interface:2
+discarded packet 
+packet consumed 38 from interface 1 
+packet recvd packet no: 39 interface:3
+next_expt :38
+ packet no 39 from interface 3 put in index no : 19 
+packet consumed 39 from interface 3 
+packet recvd packet no: 39 interface:2
+discarded packet 
+packet recvd packet no: 39 interface:1
+discarded packet 
+packet recvd packet no: 40 interface:3
+ packet no 40 from interface 3 put in index no : 0 
+packet consumed 40 from interface 3 
+packet recvd packet no: 40 interface:2
+discarded packet 
+packet recvd packet no: 40 interface:1
+discarded packet 
+packet recvd packet no: 42 interface:3
+next_expt :41
+ packet no 42 from interface 3 put in index no : 2 
+wait_ time expired packet no 23 dropped
+waiting packet no = 42
+packet consumed 42 from interface 3 
+packet recvd packet no: 42 interface:1
+discarded packet 
+packet recvd packet no: 42 interface:2
+discarded packet 
+packet recvd packet no: 44 interface:3
+next_expt :43
+ packet no 44 from interface 3 put in index no : 4 
+waiting for 43 wait_time = 2991
+packet recvd packet no: 43 interface:2
+ packet no 43 from interface 2 put in index no : 3 
+packet recvd packet no: 44 interface:1
+discarded packet 
+packet consumed 43 from interface 2 
+packet consumed 44 from interface 3 
+packet recvd packet no: 45 interface:3
+ packet no 45 from interface 3 put in index no : 5 
+packet consumed 45 from interface 3 
+packet recvd packet no: 44 interface:2
+discarded packet 
+packet recvd packet no: 46 interface:1
+next_expt :45
+ packet no 46 from interface 1 put in index no : 6 
+packet consumed 46 from interface 1 
+packet recvd packet no: 46 interface:3
+discarded packet 
+packet recvd packet no: 47 interface:1
+ packet no 47 from interface 1 put in index no : 7 
+packet recvd packet no: 46 interface:2
+discarded packet 
+packet consumed 47 from interface 1 
+packet recvd packet no: 47 interface:3
+discarded packet 
+packet recvd packet no: 48 interface:1
+ packet no 48 from interface 1 put in index no : 8 
+packet recvd packet no: 47 interface:2
+discarded packet 
+packet consumed 48 from interface 1 
+packet recvd packet no: 48 interface:3
+discarded packet 
+packet recvd packet no: 48 interface:2
+discarded packet 
+packet recvd packet no: 49 interface:1
+ packet no 49 from interface 1 put in index no : 9 
+packet consumed 49 from interface 1 
+packet recvd packet no: 50 interface:3
+next_expt :49
+ packet no 50 from interface 3 put in index no : 10 
+packet consumed 50 from interface 3 
+packet recvd packet no: 51 interface:2
+next_expt :49
+ packet no 51 from interface 2 put in index no : 11 
+packet recvd packet no: 51 interface:1
+discarded packet 
+packet consumed 51 from interface 2 
+packet recvd packet no: 51 interface:3
+discarded packet 
+packet recvd packet no: 52 interface:2
+ packet no 52 from interface 2 put in index no : 12 
+packet recvd packet no: 53 interface:1
+next_expt :52
+ packet no 53 from interface 1 put in index no : 13 
+packet consumed 52 from interface 2 
+packet consumed 53 from interface 1 
+packet recvd packet no: 53 interface:3
+discarded packet 
+packet recvd packet no: 54 interface:1
+ packet no 54 from interface 1 put in index no : 14 
+packet recvd packet no: 53 interface:2
+discarded packet 
+packet consumed 54 from interface 1 
+packet recvd packet no: 54 interface:3
+discarded packet 
+packet recvd packet no: 55 interface:1
+ packet no 55 from interface 1 put in index no : 15 
+packet recvd packet no: 54 interface:2
+discarded packet 
+packet consumed 55 from interface 1 
+packet recvd packet no: 55 interface:3
+discarded packet 
+packet recvd packet no: 56 interface:1
+ packet no 56 from interface 1 put in index no : 16 
+packet recvd packet no: 55 interface:2
+discarded packet 
+packet consumed 56 from interface 1 
+packet recvd packet no: 56 interface:3
+discarded packet 
+packet recvd packet no: 56 interface:2
+discarded packet 
+packet recvd packet no: 57 interface:1
+ packet no 57 from interface 1 put in index no : 17 
+packet consumed 57 from interface 1 
+packet recvd packet no: 57 interface:3
+discarded packet 
+packet recvd packet no: 58 interface:1
+ packet no 58 from interface 1 put in index no : 18 
+packet recvd packet no: 57 interface:2
+discarded packet 
+packet consumed 58 from interface 1 
+packet recvd packet no: 59 interface:3
+next_expt :58
+ packet no 59 from interface 3 put in index no : 19 
+packet consumed 59 from interface 3 
+packet recvd packet no: 59 interface:1
+discarded packet 
+packet recvd packet no: 59 interface:2
+discarded packet 
+packet recvd packet no: 60 interface:3
+ packet no 60 from interface 3 put in index no : 0 
+packet consumed 60 from interface 3 
+packet recvd packet no: 60 interface:1
+discarded packet 
+packet recvd packet no: 60 interface:2
+discarded packet 
+packet recvd packet no: 62 interface:3
+next_expt :61
+ packet no 62 from interface 3 put in index no : 2 
+wait_ time expired packet no 43 dropped
+waiting packet no = 62
+packet consumed 62 from interface 3 
+packet recvd packet no: 62 interface:1
+discarded packet 
+packet recvd packet no: 62 interface:2
+discarded packet 
+packet recvd packet no: 64 interface:3
+next_expt :63
+ packet no 64 from interface 3 put in index no : 4 
+waiting for 63 wait_time = 3557
+packet recvd packet no: 63 interface:2
+ packet no 63 from interface 2 put in index no : 3 
+packet recvd packet no: 64 interface:1
+discarded packet 
+packet consumed 63 from interface 2 
+packet consumed 64 from interface 3 
+packet recvd packet no: 65 interface:3
+ packet no 65 from interface 3 put in index no : 5 
+packet consumed 65 from interface 3 
+packet recvd packet no: 64 interface:2
+discarded packet 
+packet recvd packet no: 66 interface:1
+next_expt :65
+ packet no 66 from interface 1 put in index no : 6 
+packet consumed 66 from interface 1 
+packet recvd packet no: 66 interface:3
+discarded packet 
+packet recvd packet no: 67 interface:1
+ packet no 67 from interface 1 put in index no : 7 
+packet recvd packet no: 66 interface:2
+discarded packet 
+packet consumed 67 from interface 1 
+packet recvd packet no: 67 interface:3
+discarded packet 
+packet recvd packet no: 67 interface:2
+discarded packet 
+packet recvd packet no: 68 interface:1
+ packet no 68 from interface 1 put in index no : 8 
+packet consumed 68 from interface 1 
+packet recvd packet no: 68 interface:3
+discarded packet 
+packet recvd packet no: 68 interface:2
+discarded packet 
+packet recvd packet no: 69 interface:1
+ packet no 69 from interface 1 put in index no : 9 
+packet consumed 69 from interface 1 
+packet recvd packet no: 70 interface:3
+next_expt :69
+ packet no 70 from interface 3 put in index no : 10 
+packet consumed 70 from interface 3 
+packet recvd packet no: 71 interface:1
+next_expt :70
+ packet no 71 from interface 1 put in index no : 11 
+packet recvd packet no: 71 interface:2
+discarded packet 
+packet consumed 71 from interface 1 
+packet recvd packet no: 71 interface:3
+discarded packet 
+packet recvd packet no: 72 interface:2
+ packet no 72 from interface 2 put in index no : 12 
+packet recvd packet no: 73 interface:1
+next_expt :72
+ packet no 73 from interface 1 put in index no : 13 
+packet consumed 72 from interface 2 
+packet consumed 73 from interface 1 
+packet recvd packet no: 73 interface:3
+discarded packet 
+packet recvd packet no: 74 interface:1
+ packet no 74 from interface 1 put in index no : 14 
+packet recvd packet no: 73 interface:2
+discarded packet 
+packet consumed 74 from interface 1 
+packet recvd packet no: 74 interface:3
+discarded packet 
+packet recvd packet no: 75 interface:1
+ packet no 75 from interface 1 put in index no : 15 
+packet recvd packet no: 74 interface:2
+discarded packet 
+packet consumed 75 from interface 1 
+packet recvd packet no: 75 interface:3
+discarded packet 
+packet recvd packet no: 75 interface:2
+discarded packet 
+packet recvd packet no: 76 interface:1
+ packet no 76 from interface 1 put in index no : 16 
+packet consumed 76 from interface 1 
+packet recvd packet no: 76 interface:3
+discarded packet 
+packet recvd packet no: 76 interface:2
+discarded packet 
+packet recvd packet no: 77 interface:1
+ packet no 77 from interface 1 put in index no : 17 
+packet consumed 77 from interface 1 
+packet recvd packet no: 77 interface:3
+discarded packet 
+packet recvd packet no: 78 interface:1
+ packet no 78 from interface 1 put in index no : 18 
+packet recvd packet no: 77 interface:2
+discarded packet 
+packet consumed 78 from interface 1 
+packet recvd packet no: 79 interface:3
+next_expt :78
+ packet no 79 from interface 3 put in index no : 19 
+packet consumed 79 from interface 3 
+packet recvd packet no: 79 interface:1
+discarded packet 
+packet recvd packet no: 79 interface:2
+discarded packet 
+packet recvd packet no: 80 interface:3
+ packet no 80 from interface 3 put in index no : 0 
+packet consumed 80 from interface 3 
+packet recvd packet no: 80 interface:1
+discarded packet 
+packet recvd packet no: 80 interface:2
+discarded packet 
+packet recvd packet no: 82 interface:3
+next_expt :81
+ packet no 82 from interface 3 put in index no : 2 
+wait_ time expired packet no 63 dropped
+waiting packet no = 82
+packet consumed 82 from interface 3 
+packet recvd packet no: 82 interface:2
+discarded packet 
+packet recvd packet no: 82 interface:1
+discarded packet 
+packet recvd packet no: 84 interface:3
+next_expt :83
+ packet no 84 from interface 3 put in index no : 4 
+waiting for 83 wait_time = 4122
+packet recvd packet no: 83 interface:2
+ packet no 83 from interface 2 put in index no : 3 
+packet recvd packet no: 84 interface:1
+discarded packet 
+packet consumed 83 from interface 2 
+packet consumed 84 from interface 3 
+packet recvd packet no: 85 interface:3
+ packet no 85 from interface 3 put in index no : 5 
+packet consumed 85 from interface 3 
+packet recvd packet no: 84 interface:2
+discarded packet 
+packet recvd packet no: 86 interface:1
+next_expt :85
+ packet no 86 from interface 1 put in index no : 6 
+packet consumed 86 from interface 1 
+packet recvd packet no: 86 interface:3
+discarded packet 
+packet recvd packet no: 87 interface:1
+ packet no 87 from interface 1 put in index no : 7 
+packet recvd packet no: 86 interface:2
+discarded packet 
+packet consumed 87 from interface 1 
+packet recvd packet no: 87 interface:3
+discarded packet 
+packet recvd packet no: 87 interface:2
+discarded packet 
+packet recvd packet no: 88 interface:1
+ packet no 88 from interface 1 put in index no : 8 
+packet consumed 88 from interface 1 
+packet recvd packet no: 88 interface:3
+discarded packet 
+packet recvd packet no: 88 interface:2
+discarded packet 
+packet recvd packet no: 89 interface:1
+ packet no 89 from interface 1 put in index no : 9 
+packet consumed 89 from interface 1 
+packet recvd packet no: 90 interface:3
+next_expt :89
+ packet no 90 from interface 3 put in index no : 10 
+packet consumed 90 from interface 3 
+packet recvd packet no: 91 interface:1
+next_expt :90
+ packet no 91 from interface 1 put in index no : 11 
+packet recvd packet no: 91 interface:2
+discarded packet 
+packet consumed 91 from interface 1 
+packet recvd packet no: 91 interface:3
+discarded packet 
+packet recvd packet no: 93 interface:1
+next_expt :92
+ packet no 93 from interface 1 put in index no : 13 
+packet recvd packet no: 92 interface:2
+ packet no 92 from interface 2 put in index no : 12 
+packet consumed 92 from interface 2 
+packet consumed 93 from interface 1 
+packet recvd packet no: 93 interface:3
+discarded packet 
+packet recvd packet no: 94 interface:1
+ packet no 94 from interface 1 put in index no : 14 
+packet recvd packet no: 93 interface:2
+discarded packet 
+packet consumed 94 from interface 1 
+packet recvd packet no: 94 interface:3
+discarded packet 
+packet recvd packet no: 95 interface:1
+ packet no 95 from interface 1 put in index no : 15 
+packet recvd packet no: 94 interface:2
+discarded packet 
+packet consumed 95 from interface 1 
+packet recvd packet no: 95 interface:3
+discarded packet 
+packet recvd packet no: 96 interface:1
+ packet no 96 from interface 1 put in index no : 16 
+packet recvd packet no: 95 interface:2
+discarded packet 
+packet consumed 96 from interface 1 
+packet recvd packet no: 96 interface:3
+discarded packet 
+packet recvd packet no: 97 interface:1
+ packet no 97 from interface 1 put in index no : 17 
+packet recvd packet no: 96 interface:2
+discarded packet 
+packet consumed 97 from interface 1 
+packet recvd packet no: 97 interface:3
+discarded packet 
+packet recvd packet no: 97 interface:2
+discarded packet 
+packet recvd packet no: 98 interface:1
+ packet no 98 from interface 1 put in index no : 18 
+packet consumed 98 from interface 1 
+packet recvd packet no: 99 interface:3
+next_expt :98
+ packet no 99 from interface 3 put in index no : 19 
+packet consumed 99 from interface 3 
+packet recvd packet no: 99 interface:1
+discarded packet 
+packet recvd packet no: 99 interface:2
+discarded packet 
+packet recvd packet no: 100 interface:3
+ packet no 100 from interface 3 put in index no : 0 
+packet consumed 100 from interface 3 
+packet recvd packet no: 100 interface:1
+discarded packet 
+packet recvd packet no: 100 interface:2
+discarded packet 
+packet recvd packet no: 102 interface:3
+next_expt :101
+ packet no 102 from interface 3 put in index no : 2 
+wait_ time expired packet no 83 dropped
+waiting packet no = 102
+packet consumed 102 from interface 3 
+packet recvd packet no: 102 interface:2
+discarded packet 
+packet recvd packet no: 102 interface:1
+discarded packet 
+packet recvd packet no: 104 interface:3
+next_expt :103
+ packet no 104 from interface 3 put in index no : 4 
+waiting for 103 wait_time = 4688
+packet recvd packet no: 103 interface:2
+ packet no 103 from interface 2 put in index no : 3 
+packet recvd packet no: 104 interface:1
+discarded packet 
+packet consumed 103 from interface 2 
+packet consumed 104 from interface 3 
+packet recvd packet no: 105 interface:3
+ packet no 105 from interface 3 put in index no : 5 
+packet consumed 105 from interface 3 
+packet recvd packet no: 104 interface:2
+discarded packet 
+packet recvd packet no: 106 interface:1
+next_expt :105
+ packet no 106 from interface 1 put in index no : 6 
+packet consumed 106 from interface 1 
+packet recvd packet no: 106 interface:3
+discarded packet 
+packet recvd packet no: 107 interface:1
+ packet no 107 from interface 1 put in index no : 7 
+packet recvd packet no: 106 interface:2
+discarded packet 
+packet consumed 107 from interface 1 
+packet recvd packet no: 107 interface:3
+discarded packet 
+packet recvd packet no: 108 interface:1
+ packet no 108 from interface 1 put in index no : 8 
+packet recvd packet no: 107 interface:2
+discarded packet 
+packet consumed 108 from interface 1 
+packet recvd packet no: 108 interface:3
+discarded packet 
+packet recvd packet no: 109 interface:1
+ packet no 109 from interface 1 put in index no : 9 
+packet recvd packet no: 108 interface:2
+discarded packet 
+packet consumed 109 from interface 1 
+packet recvd packet no: 110 interface:3
+next_expt :109
+ packet no 110 from interface 3 put in index no : 10 
+packet consumed 110 from interface 3 
+packet recvd packet no: 111 interface:1
+next_expt :110
+ packet no 111 from interface 1 put in index no : 11 
+packet recvd packet no: 111 interface:2
+discarded packet 
+packet consumed 111 from interface 1 
+packet recvd packet no: 111 interface:3
+discarded packet 
+packet recvd packet no: 112 interface:2
+ packet no 112 from interface 2 put in index no : 12 
+packet recvd packet no: 113 interface:1
+next_expt :112
+ packet no 113 from interface 1 put in index no : 13 
+packet consumed 112 from interface 2 
+packet consumed 113 from interface 1 
+packet recvd packet no: 113 interface:3
+discarded packet 
+packet recvd packet no: 114 interface:1
+ packet no 114 from interface 1 put in index no : 14 
+packet consumed 114 from interface 1 
+packet recvd packet no: 113 interface:2
+discarded packet 
+packet recvd packet no: 114 interface:3
+discarded packet 
+packet recvd packet no: 115 interface:1
+ packet no 115 from interface 1 put in index no : 15 
+packet recvd packet no: 114 interface:2
+discarded packet 
+packet consumed 115 from interface 1 
+packet recvd packet no: 115 interface:3
+discarded packet 
+packet recvd packet no: 116 interface:1
+ packet no 116 from interface 1 put in index no : 16 
+packet recvd packet no: 115 interface:2
+discarded packet 
+packet consumed 116 from interface 1 
+packet recvd packet no: 116 interface:3
+discarded packet 
+packet recvd packet no: 117 interface:1
+ packet no 117 from interface 1 put in index no : 17 
+packet recvd packet no: 116 interface:2
+discarded packet 
+packet consumed 117 from interface 1 
+packet recvd packet no: 117 interface:3
+discarded packet 
+packet recvd packet no: 117 interface:2
+discarded packet 
+packet recvd packet no: 118 interface:1
+ packet no 118 

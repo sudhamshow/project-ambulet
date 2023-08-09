@@ -1,0 +1,274 @@
+#include "serv.h"
+
+/*********** GLOBALS DECLARATION ************/
+/** The interface_params array contains the previous and current    **
+ ** environments of the packet recieved from each interface         **/
+
+struct packet_params interface_params[MAX_INTERFACE];
+
+struct global_buffer seq_params;
+
+/**   The main function creates two threads one for receiving the   **
+ **   packets and putting them in a circular buffer and other for   **
+ **   sending the sequenced packets to the consumer.	   	    **/
+
+int main()
+{
+	pthread_t recv_pkts, process_enq;
+	int iResult;
+
+	iResult =
+	    pthread_create(&recv_pkts, NULL,
+			   (void *)receive_packets_thread_function, NULL);
+	if (iResult != 0) {
+		printf("recv pkts thread not created : %s \n", strerror(errno));
+	}
+
+	iResult =
+	    pthread_create(&process_enq, NULL,
+			   (void *)process_enque_thread_function, NULL);
+	if (iResult != 0) {
+		printf("process enque thread not created : %s \n",
+		       strerror(errno));
+	}
+	pthread_join(process_enq, NULL);
+	exit(0);
+}
+
+/**	receive_packets_thread_function continiously recieves the       **
+ **	packets, notes the time when packets have arrived and    **
+ **	the global variables with current time and packet number and   	**
+ **	calls the jitter_computation which updates the jitter values.   **/
+
+void *receive_packets_thread_function()
+{
+	int recv_sock, iResult;
+	char recvd_pkt[MAX_SIZE];
+	socklen_t client_addr_len;
+	struct packet *recvd;
+	struct sockaddr_in client_addr, src_addr;
+	struct timeval tv;
+	unsigned long present_time;
+	
+	bzero(&seq_params, sizeof(struct global_buffer));
+	bzero(&interface_params, sizeof(struct packet_params));
+
+	recv_sock = socket(AF_INET, SOCK_DGRAM, 0);
+
+	printf("socket created %d\n", recv_sock);
+
+	client_addr.sin_family = AF_INET;
+	client_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+	client_addr.sin_port = htons(PORT_NO);
+
+	client_addr_len = sizeof(struct sockaddr_in);
+
+	iResult =
+	    bind(recv_sock, (struct sockaddr *)&client_addr,
+		 sizeof(client_addr));
+	if (iResult == -1) {
+		printf("bind error1 : %s \n", strerror(errno));
+	} else
+		printf("bind successful to INADDR_ANY\n");
+
+	while (1) {
+
+		iResult =
+		    recvfrom(recv_sock, recvd_pkt, MAX_SIZE, 0,
+			     (struct sockaddr *)&src_addr, &client_addr_len);
+		if (iResult == -1) {
+			printf("recv from error: %s \n", strerror(errno));
+		}
+
+		gettimeofday(&tv, NULL);
+		present_time = 1000000 * tv.tv_sec + tv.tv_usec;
+		present_time = present_time / 1000;
+
+		recvd = (struct packet *)recvd_pkt;
+
+//		printf("packet recvd packet no: %d interface:%d\n",recvd -> packet_number,recvd->interface);
+		process_packet(recvd, present_time);
+
+		usleep(10);
+	}
+}
+
+unsigned long jitter_computation(int if_index)
+{
+	int i;
+	float average = 0, jitter;
+
+	for (i = 0; i < WINDOW_SIZE; i++) {
+		//printf("prev_diffs = %lu\t",packet_details->prev_diff[i]);
+		average = average + interface_params[if_index].prev_diff[i];
+	}
+
+	average = average / WINDOW_SIZE;
+	jitter = (0.9 * average) + (0.1 * interface_params[if_index].curr_diff);
+
+	return (jitter);
+}
+
+void process_packet(struct packet *recvd_pkt, unsigned long current_time)
+{
+
+	int if_idx = recvd_pkt->interface, missed_slots = 0, buff_index = 0, i =
+	    0;
+	float interpolation_step = 0;
+
+	interface_params[if_idx].curr_time = current_time;
+	interface_params[if_idx].curr_pkt_no = recvd_pkt->packet_number;
+	interface_params[if_idx].curr_diff =
+	    interface_params[if_idx].curr_time -
+	    interface_params[if_idx].prev_time;
+
+//	printf("difference = %lu\t", interface_params[if_idx].curr_diff);
+
+	interface_params[if_idx].jitter = jitter_computation(if_idx);
+//	printf("jitter = %lu\n", interface_params[if_idx].jitter);
+
+	/* Count number of missed packets */
+
+	interface_params[if_idx].prev_time = interface_params[if_idx].curr_time;
+	interface_params[if_idx].pkt_index =
+	    (interface_params[if_idx].curr_pkt_no) % WINDOW_SIZE;
+	interface_params[if_idx].prev_diff[interface_params[if_idx].pkt_index] =
+	    interface_params[if_idx].curr_diff;
+	missed_slots =
+	    interface_params[if_idx].curr_pkt_no -
+	    interface_params[if_idx].prev_pkt_no - 1;
+	interface_params[if_idx].pkt_index =
+	    interface_params[if_idx].pkt_index + missed_slots;
+	interface_params[if_idx].prev_diff[interface_params[if_idx].pkt_index] =
+	    interface_params[if_idx].curr_diff;
+
+	/* Interpolation of time for missed packets */
+
+	if (missed_slots > 1) {
+
+		interpolation_step =
+		    interface_params[if_idx].curr_diff / missed_slots;
+		interface_params[if_idx].pkt_index =
+		    interface_params[if_idx].pkt_index - missed_slots;
+
+		for (i = 1; i <= missed_slots; i++) {
+
+			interface_params[if_idx].prev_diff[interface_params
+							   [if_idx].pkt_index]
+			    =
+			    interface_params[if_idx].prev_time +
+			    interpolation_step;
+			interface_params[if_idx].prev_time =
+			    interface_params[if_idx].prev_diff
+			    [interface_params[if_idx].pkt_index];
+		}
+	}
+
+	/*Store received packets in the sequnce buffer */
+
+	buff_index = interface_params[if_idx].curr_pkt_no % BUFFER_SIZE;
+//      interface_params[if_idx].head = buff_index;
+
+	/**  Check if the arrived packet is already put in the buffer if    **
+	 **  not then check for the packet number and then put the arrived  **
+	 **  packet in the global buffer set the flag and  		    **
+	 ** 'Next Expected Packet'                                          **/
+	if (seq_params.seq_flags[buff_index] == 0) {
+		if (recvd_pkt->packet_number < seq_params.next_exp_pkt) {
+			drop_packet(recvd_pkt);
+		} else {
+			memcpy(&seq_params.in_seq_buffer[buff_index],
+			       recvd_pkt, sizeof(struct packet));
+			seq_params.most_recent_seq_no =
+			    recvd_pkt->packet_number;
+			seq_params.seq_flags[buff_index] = 1;
+			seq_params.next_exp_pkt =
+			    interface_params[if_idx].curr_pkt_no++;
+		printf(" packet no %d from interface %d put in index no : %d\n",seq_params.in_seq_buffer[buff_index].packet_number,seq_params.in_seq_buffer[buff_index].interface,buff_index);
+		}
+	} else {
+		printf("duplicate packet dropped %d interface %d\n",recvd_pkt->packet_number,recvd_pkt->interface);
+//	        seq_params.seq_flags[buff_index] =
+		 drop_packet(recvd_pkt);
+	}
+	interface_params[if_idx].prev_pkt_no =
+	    interface_params[if_idx].curr_pkt_no;
+
+}
+
+/**	'process_enque_thread_function' looks at the global buffer once   **
+ **	in a millisecond and checks for the packets which have arrived    **
+ **	and gives it to the consumer in a ordered fashion. The ones  	  **
+ **	which have not arrived in sequence are dropped. 	          **/
+
+void *process_enque_thread_function()
+{
+	int cur_index = 0, if_idx = 0, waiting = 0, waiting_pkt_no = 0, waiting_idx = 0;
+	unsigned long long time_now, wait_time = 0;
+        int packet_number_sent = 0;
+	printf("second thread started \n");
+	while (1) {
+//			printf("in while 1 of 2nd thread\n");
+			while (seq_params.seq_flags[cur_index] != 0) {
+//					printf("checking the buffer\n");
+			if(packet_number_sent == 0){
+				packet_number_sent = seq_params.in_seq_buffer[cur_index].packet_number;	
+				deliver_packet(cur_index);
+				cur_index++;
+			}	
+			if (seq_params.in_seq_buffer[cur_index].packet_number - packet_number_sent == 1) {
+                           packet_number_sent = seq_params.in_seq_buffer[cur_index]. packet_number;
+				     deliver_packet(cur_index);
+				     cur_index++;
+                                     cur_index = cur_index % BUFFER_SIZE;
+                                    }
+				else {
+					if (!wait_time) { 
+                                           wait_time = time_now +
+					          interface_params[if_idx].jitter;
+                                         }
+					else if (time_now > wait_time) {
+                                          seq_params.seq_flags[cur_index] = discard_packet(cur_index);
+					
+					waiting_pkt_no =
+					    seq_params.in_seq_buffer[cur_index +
+									   1].
+					    packet_number;
+//					printf("waiting for jitter!\n");
+				}
+                                
+		}
+		}
+		time_now++;
+		usleep(10000);
+	}
+}
+
+void deliver_packet(int index)
+{
+	/**	bzero is a place holder for removing the header of the packet   **
+	 **	(packet_numer and interface in this case) and sending only the	**
+	 **	data part of the packet recieved!!                 		**/
+
+	printf("packet consumed %d from interface %d\n",seq_params.in_seq_buffer[index].packet_number,seq_params.in_seq_buffer[index].interface);
+	bzero((struct packet *)&seq_params.in_seq_buffer[index],
+	      sizeof(struct packet));
+	seq_params.seq_flags[index] = 0;
+}
+
+int drop_packet(struct packet *drop_pkt)
+{
+	/**     bzero is a place holder for removing the header of the packet   **
+         **     (packet_numer and interface in this case) and sending only the  **
+         **     data part of the packet recieved!!                              **/
+//	printf("packet dropped \n");
+
+return(0);
+}
+
+int discard_packet(int pkt_no)
+{
+//	printf("packet no. %d pkt_no discarded", pkt_no);
+
+	return (0);
+}
